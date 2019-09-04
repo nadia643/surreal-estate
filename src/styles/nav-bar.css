@@ -1,0 +1,24 @@
+.NavBar {
+    background: white;
+    border-bottom: grey;
+  }
+
+.nav {
+    border: 0px;
+    padding: 0px;
+}
+
+.item {
+    border: 0px;
+    padding: 20px;
+    width: 150px;    
+    cursor: pointer;
+}
+.item:hover {
+    background-color: #97F4FE;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+}
