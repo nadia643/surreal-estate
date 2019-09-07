@@ -1,0 +1,36 @@
+body {
+    padding: 40px;
+}
+.title {
+    margin: 10px;
+    display:inline;
+}
+.type {
+    margin: 10px;
+    display:inline;
+}
+.bedrooms {
+    margin: 10px;
+    display:inline;
+}
+.bathrooms {
+    margin: 10px;
+    display:inline;
+}
+.price {
+    margin: 10px;
+    display:inline;
+}
+.city {
+    margin: 10px;
+    display:inline;
+}
+.email {
+    margin: 10px;
+    display:inline;
+}
+.button {
+    margin: 20px;
+    display:inline;
+    background-color: blue;
+}
