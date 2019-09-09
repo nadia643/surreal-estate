@@ -6,17 +6,22 @@ class AddPropertyPage extends Component {
   state = {
     fields: {
       title: '',
-      type: '',
+      type: 'Flat',
       bedrooms: '',
       bathrooms: '',
       price: '',
-      city: '',
+      city: 'Manchester',
       email: '',
     },
   };
 
   handleAddProperty = event => {
     event.preventDefault();
+    this.setState({
+      alertMessage: '',
+      isSuccess: false,
+      isError: false,
+    });
     axios.post('http://localhost:3000/api/v1/PropertyListing', {
       title: this.state.fields.title,
       type: this.state.fields.type,
@@ -25,12 +30,24 @@ class AddPropertyPage extends Component {
       price: this.state.fields.price,
       city: this.state.fields.city,
       email: this.state.fields.email,
+      alertMessage: '',
+      isSuccess: false,
+      isError: false,
+    })
+    .then(() => this.setState({
+      isSuccess: true,
+      alertMessage: 'Property added.',
+  }))
+    .catch((err) => {
+      this.setState({
+      alertMessage: 'Server error. Please try again later.',
+      isError: true,
     });
-    console.log(this.state.fields);
-  };
 
   render() {
     return (
+      {this.state.isSuccess && <Alert message={this.state.alertMessage} success />}
+      {this.state.isError && <Alert message={this.state.alertMessage} />}
       <div>
         <form onSubmit={this.handleAddProperty}>
           <div className="title">

@@ -1,0 +1,11 @@
+.Alert {
+    background-color: red;
+    padding: 10px;
+    color: black;
+}
+
+.Alert.success {
+    background-color: green;
+    padding: 10px;
+    color: black;
+}
