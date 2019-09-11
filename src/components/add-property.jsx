@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/add-property.css';
 import axios from 'axios';
+import Alert from '../components/Alert';
 
 class AddPropertyPage extends Component {
   state = {
@@ -22,6 +23,7 @@ class AddPropertyPage extends Component {
       isSuccess: false,
       isError: false,
     });
+
     axios.post('http://localhost:3000/api/v1/PropertyListing', {
       title: this.state.fields.title,
       type: this.state.fields.type,
@@ -34,21 +36,23 @@ class AddPropertyPage extends Component {
       isSuccess: false,
       isError: false,
     })
-    .then(() => this.setState({
-      isSuccess: true,
-      alertMessage: 'Property added.',
-  }))
-    .catch((err) => {
-      this.setState({
-      alertMessage: 'Server error. Please try again later.',
-      isError: true,
-    });
+      .then(() => this.setState({
+        isSuccess: true,
+        alertMessage: 'Property added.',
+      }))
+      .catch(() => {
+        this.setState({
+          alertMessage: 'Server error. Please try again later.',
+          isError: true,
+        });
+      });
+  };
 
   render() {
     return (
-      {this.state.isSuccess && <Alert message={this.state.alertMessage} success />}
-      {this.state.isError && <Alert message={this.state.alertMessage} />}
       <div>
+        {this.state.isSuccess && <Alert message={this.state.alertMessage} success />}
+        {this.state.isError && <Alert message={this.state.alertMessage} />}
         <form onSubmit={this.handleAddProperty}>
           <div className="title">
             <input

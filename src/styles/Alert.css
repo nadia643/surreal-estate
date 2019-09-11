@@ -2,10 +2,14 @@
     background-color: red;
     padding: 10px;
     color: black;
+    border-style: double;
+    border-color: #FFA07A;
 }
 
 .Alert.success {
     background-color: green;
     padding: 10px;
     color: black;
+    border-style: double;
+    border-color:#98FB98;
 }
